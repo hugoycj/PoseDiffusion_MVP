@@ -29,13 +29,13 @@ def plot_cameras(ax, cameras, color: str = "blue"):
     Plots a set of `cameras` objects into the maplotlib axis `ax` with
     color `color`.
     """
-    cam_wires_canonical = get_camera_wireframe().cuda()[None]
+    cam_wires_canonical = get_camera_wireframe()[None]
     cam_trans = cameras.get_world_to_view_transform().inverse()
     cam_wires_trans = cam_trans.transform_points(cam_wires_canonical)
     plot_handles = []
     for wire in cam_wires_trans:
         # the Z and Y axes are flipped intentionally here!
-        x_, z_, y_ = wire.detach().cpu().numpy().T.astype(float)
+        x_, z_, y_ = wire.detach().numpy().T.astype(float)
         (h,) = ax.plot(x_, y_, z_, color=color, linewidth=0.3)
         plot_handles.append(h)
     return plot_handles
