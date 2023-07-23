@@ -2,4 +2,5 @@ hydra-core
 omegaconf
 opencv-python
 einops
+plotly
 git+https://github.com/facebookresearch/pytorch3d.git
