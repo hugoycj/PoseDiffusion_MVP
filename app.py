@@ -17,7 +17,6 @@ from functools import partial
 import matplotlib.pyplot as plt
 import shutil
 from util.utils import seed_all_random_engines
-from util.match_extraction import extract_match
 from util.load_img_folder import load_and_preprocess_images
 from util.geometry_guided_sampling import geometry_guided_sampling
 from pytorch3d.vis.plotly_vis import get_camera_wireframe
@@ -196,25 +195,8 @@ def estimate_images_pose(image_folder, mode) -> None:
     start_time = time.time()
 
     # Perform match extraction
-    if cfg.GGS.enable:
-        # Optional TODO: remove the keypoints outside the cropped region?
-
-        kp1, kp2, i12 = extract_match(image_folder, image_info)
-
-        keys = ["kp1", "kp2", "i12", "img_shape"]
-        values = [kp1, kp2, i12, images.shape]
-        matches_dict = dict(zip(keys, values))
-
-        cfg.GGS.pose_encoding_type = cfg.MODEL.pose_encoding_type
-        GGS_cfg = OmegaConf.to_container(cfg.GGS)
-
-        cond_fn = partial(
-            geometry_guided_sampling, matches_dict=matches_dict, GGS_cfg=GGS_cfg
-        )
-        print("[92m=====> Sampling with GGS <=====[0m")
-    else:
-        cond_fn = None
-        print("[92m=====> Sampling without GGS <=====[0m")
+    cond_fn = None
+    print("[92m=====> Sampling without GGS <=====[0m")
 
     # Forward
     with torch.no_grad():
