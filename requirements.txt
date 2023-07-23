@@ -2,4 +2,4 @@ hydra-core
 omegaconf
 opencv-python
 einops
-git+https://github.com/facebookresearch/PoseDiffusion.git
+git+https://github.com/facebookresearch/pytorch3d.git
