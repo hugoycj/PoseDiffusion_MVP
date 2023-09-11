@@ -11,12 +11,12 @@ license: apache-2.0
 ---
 
 # An Out-Of-The-Box Version of PoseDiffusion
-[![Hugging Face Spaces](splash_sample2_record.gif)](https://huggingface.co/spaces/chongjie/PoseDiffusion_MVP)
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/chongjie/PoseDiffusion_MVP)
 
 ## Introduction
 Camera pose estimation is a critical task in computer vision, traditionally relying on classical methods such as keypoint matching, RANSAC, and bundle adjustment. [PoseDiffusion](https://posediffusion.github.io/) introduces a novel approach to this problem by formulating the Structure from Motion (SfM) problem within a probabilistic diffusion framework. 
 
-[![Demo Video](https://posediffusion.github.io/resources/qual_co3d.png)](https://posediffusion.github.io/resources/splash_sample2.mp4 "Demo Video")
+[![Demo Video](splash_sample2_record.gif)](https://posediffusion.github.io/resources/splash_sample2.mp4 "Demo Video")
 
 ## Usage
 
